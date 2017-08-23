@@ -3,13 +3,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { FotoModule } from './foto/foto.module';
 import { HttpModule } from '@angular/http';
+import { PainelModule } from './painel/painel.module';
+import { CadastroComponent } from './cadastro/cadastro.component';
+import { ListagemComponent } from './listagem/listagem.component';
+import { routing } from './app.routes';
 
 import 'rxjs/add/operator/map';
 
 //NgModule transforma a classe em um modulo do Angular
 @NgModule({
-    imports: [ BrowserModule, FotoModule, HttpModule ], //importa BrowserModule pois ele roda no navegador
-    declarations: [ AppComponent ], //oque o modulo declara o que faz parte dele
+    imports: [ BrowserModule, FotoModule, HttpModule, PainelModule, routing ], //importa BrowserModule pois ele roda no navegador
+    declarations: [ AppComponent, CadastroComponent, ListagemComponent ], //oque o modulo declara o que faz parte dele
     bootstrap: [ AppComponent ] //Com qual component eu quero iniciar
 })
 export class AppModule {
