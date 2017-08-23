@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 
 //anotacao do tipo Decorator
 @Component({
+    moduleId: module.id,
     selector: 'app',
-    templateUrl: './app/app.component.html'
+    templateUrl: './app.component.html'
 })
-class AppComponent {
+export class AppComponent {
 
 }
