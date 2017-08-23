@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Http } from '@angular/http';
 
 //anotacao do tipo Decorator
 @Component({
@@ -8,4 +9,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+    fotos: Array<Object> = [];
+    //fotos: Object[] = [];
+
+    constructor(http: Http){
+        http
+        .get('v1/fotos')
+        .map(res => res.json())
+        .subscribe(fotos => {
+            this.fotos = fotos;
+            console.log(this.fotos);
+        }, erro => console.log(erro));
+    }
 }
