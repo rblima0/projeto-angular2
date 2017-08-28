@@ -9,3 +9,6 @@ fonte de dados para a view.
 
 [()]
 two-way data binding
+
+
+A diretiva ngIf exibe o elemento no qual foi adicionada se o seu valor for true e o esconde quando for false.
