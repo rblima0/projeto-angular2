@@ -1,0 +1,11 @@
+
+<input (keyup)="calculaTotal()">
+event binding
+view para a fonte de dados.
+
+<input [value]="pessoa.nome">
+data binding
+fonte de dados para a view.
+
+[()]
+two-way data binding
