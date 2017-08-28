@@ -10,9 +10,11 @@ import { routing } from './app.routes';
 
 import 'rxjs/add/operator/map';
 
+import { FormsModule } from '@angular/forms';
+
 //NgModule transforma a classe em um modulo do Angular
 @NgModule({
-    imports: [ BrowserModule, FotoModule, HttpModule, PainelModule, routing ], //importa BrowserModule pois ele roda no navegador
+    imports: [ BrowserModule, FotoModule, HttpModule, PainelModule, routing, FormsModule ], //importa BrowserModule pois ele roda no navegador
     declarations: [ AppComponent, CadastroComponent, ListagemComponent ], //oque o modulo declara o que faz parte dele
     bootstrap: [ AppComponent ] //Com qual component eu quero iniciar
 })

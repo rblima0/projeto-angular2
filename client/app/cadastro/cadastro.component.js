@@ -13,9 +13,6 @@ var foto_component_1 = require('../foto/foto.component');
 var CadastroComponent = (function () {
     function CadastroComponent() {
         this.foto = new foto_component_1.FotoComponent();
-        this.foto.titulo = "Titulo";
-        this.foto.url = "url";
-        this.foto.descricao = "descricao";
     }
     CadastroComponent.prototype.cadastrar = function (event) {
         event.preventDefault();
