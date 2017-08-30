@@ -19,8 +19,14 @@ export class FotoService {
 
     //Tipando o retorno com Observable
     cadastra(foto: FotoComponent): Observable<Response> {
-        return this.http
-            .post(this.url, JSON.stringify(foto), { headers: this.headers });
+        if(foto._id){
+            return this.http
+                .put(this.url + '/' + foto._id, JSON.stringify(foto), { headers: this.headers})
+        } else {
+            return this.http
+                .post(this.url, JSON.stringify(foto), { headers: this.headers });
+        }
+        
     }
 
     lista(): Observable<FotoComponent[]>{
@@ -31,5 +37,11 @@ export class FotoService {
 
     remove(foto: FotoComponent){
         return this.http.delete(this.url + '/' + foto._id)
+    }
+
+    buscaPorId(id: string): Observable<FotoComponent> {
+        return this.http
+            .get(this.url + '/' + id)
+            .map(res => res.json());
     }
 }
