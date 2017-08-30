@@ -9,19 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var http_1 = require('@angular/http');
+var foto_service_1 = require('../foto/foto.service');
 var ListagemComponent = (function () {
+    //fotos: Array<Object> = [];
     //fotos: Object[] = [];
-    function ListagemComponent(http) {
+    function ListagemComponent(service) {
         var _this = this;
+        //tipando
         this.fotos = [];
-        http
-            .get('v1/fotos')
-            .map(function (res) { return res.json(); })
-            .subscribe(function (fotos) {
-            _this.fotos = fotos;
-            console.log(_this.fotos);
-        }, function (erro) { return console.log(erro); });
+        service.lista()
+            .subscribe(function (fotos) { return _this.fotos = fotos; }, function (erro) { return console.log(erro); });
     }
     ListagemComponent = __decorate([
         core_1.Component({
@@ -29,7 +26,7 @@ var ListagemComponent = (function () {
             selector: 'listagem',
             templateUrl: './listagem.component.html'
         }), 
-        __metadata('design:paramtypes', [http_1.Http])
+        __metadata('design:paramtypes', [foto_service_1.FotoService])
     ], ListagemComponent);
     return ListagemComponent;
 }());

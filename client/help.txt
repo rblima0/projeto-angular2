@@ -12,3 +12,6 @@ two-way data binding
 
 
 A diretiva ngIf exibe o elemento no qual foi adicionada se o seu valor for true e o esconde quando for false.
+
+
+Anotar FotoService com @Injectable, caso contrário Angular não entenderá que deve procurar as dependências do próprio serviço quando for injetá-lo. Além disso, o móduloFotoModule precisa adicionar FotoService em sua lista de providers.
