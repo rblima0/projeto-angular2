@@ -20,11 +20,12 @@
     <br>
 
     <div class="row">
-        <painel class="col-md-2" *ngFor="let foto of fotos | filtroPorTitulo: textoProcurado.value" titulo="{{foto.titulo}}">
+        <painel #painel class="col-md-2" *ngFor="let foto of fotos | filtroPorTitulo: textoProcurado.value" titulo="{{foto.titulo}}">
             <a [routerLink]="['/cadastro', foto._id]">
                 <foto url="{{foto.url}}" titulo="{{foto.titulo}}"></foto>
             </a>
-            <botao nome="Remover" estilo="btn-danger btn-block" (acao)="remove(foto)" confirmacao="true"></botao>
+            <botao nome="Remover" estilo="btn-danger btn-block" (acao)="modal.show()" [confirmacao]="false"></botao>
+            <modal #modal frase="Tem certeza que deseja remover esta foto ?" (confirma)="remove(foto, painel)"></modal>
             <!-- <button class="btn btn-danger btn-block" (click)="remove(foto)">Remover</button> -->
         </painel>
     </div>

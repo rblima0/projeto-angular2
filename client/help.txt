@@ -17,3 +17,19 @@ A diretiva ngIf exibe o elemento no qual foi adicionada se o seu valor for true 
 Anotar FotoService com @Injectable, caso contrário Angular não entenderá que deve procurar as dependências do próprio serviço quando for injetá-lo. Além disso, o móduloFotoModule precisa adicionar FotoService em sua lista de providers.
 
 Não confunda o serviço ActivatedRoute com Router. O primeiro sabe apenas dos parâmetros da rota, o segundo nos permite realizarmos navegações programaticamente.
+
+
+
+O Output é um decorator que permite criarmos eventos customizado, isto é, eventos que não existem na especificação JavaScript. Contudo, precisamos associar o decorator a uma instância de EventEmitter do pacte @angular/core.
+ 
+O selector de um componente nada mais é do que o nome que utilizaremos para utilizarmos o componente no template de outros componentes.
+ 
+O nome de um evento customizado é o nome do atributo decorado com Output e que guarda uma instância de EventEmitter.
+ 
+O Input é um decorator para definir uma inbound property de um componente. Em outras palavras, ela permite passarmos valores o selector do componente.
+
+
+node ./node_modules/typings/dist/bin install dt~jquery --global --save
+Usar Jquery
+
+node ./node_modules/typings/dist/bin install dt~jqueryui --global --save

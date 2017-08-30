@@ -12,10 +12,11 @@ import { BotaoModule } from './botao/botao.module';
 import 'rxjs/add/operator/map';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModalModule } from './modal/modal.module';
 
 //NgModule transforma a classe em um modulo do Angular
 @NgModule({
-    imports: [ BrowserModule, FotoModule, HttpModule, PainelModule, routing, FormsModule, ReactiveFormsModule, BotaoModule ], //importa BrowserModule pois ele roda no navegador
+    imports: [ BrowserModule, FotoModule, HttpModule, PainelModule, routing, FormsModule, ReactiveFormsModule, BotaoModule, ModalModule ], //importa BrowserModule pois ele roda no navegador
     declarations: [ AppComponent, CadastroComponent, ListagemComponent ], //oque o modulo declara o que faz parte dele
     bootstrap: [ AppComponent ] //Com qual component eu quero iniciar
 })
