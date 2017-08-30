@@ -2,7 +2,9 @@
     <h1 class="text-center">Projeto Angular</h1>
 </div>
 
-<div class="container">     
+<div class="container">
+
+    <p *ngIf="mensagem.length" class="alert alert-info">{{mensagem}}</p>
     <div class="row">
         <div class="col-md-12">
             <form>
@@ -21,6 +23,7 @@
     <div class="row">
         <painel class="col-md-2" *ngFor="let foto of fotos | filtroPorTitulo: textoProcurado.value" titulo="{{foto.titulo}}">
             <foto url="{{foto.url}}" titulo="{{foto.titulo}}"></foto>
+            <button class="btn btn-danger btn-block" (click)="remove(foto)">Remover</button>
         </painel>
     </div>
 </div>
