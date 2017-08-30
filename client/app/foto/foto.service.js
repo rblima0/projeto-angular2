@@ -21,11 +21,13 @@ var FotoService = (function () {
     FotoService.prototype.cadastra = function (foto) {
         if (foto._id) {
             return this.http
-                .put(this.url + '/' + foto._id, JSON.stringify(foto), { headers: this.headers });
+                .put(this.url + '/' + foto._id, JSON.stringify(foto), { headers: this.headers })
+                .map(function () { return new MensagemCadastro('Foto alterada com sucesso !', false); });
         }
         else {
             return this.http
-                .post(this.url, JSON.stringify(foto), { headers: this.headers });
+                .post(this.url, JSON.stringify(foto), { headers: this.headers })
+                .map(function () { return new MensagemCadastro('Foto incluída com sucesso !', true); });
         }
     };
     FotoService.prototype.lista = function () {
@@ -48,4 +50,18 @@ var FotoService = (function () {
     return FotoService;
 }());
 exports.FotoService = FotoService;
+var MensagemCadastro = (function () {
+    function MensagemCadastro(mensagem, inclusao) {
+        this._mensagem = mensagem;
+        this._inclusao = inclusao;
+    }
+    MensagemCadastro.prototype.obterMensagem = function () {
+        return this._mensagem;
+    };
+    MensagemCadastro.prototype.ehInclusao = function () {
+        return this._inclusao;
+    };
+    return MensagemCadastro;
+}());
+exports.MensagemCadastro = MensagemCadastro;
 //# sourceMappingURL=foto.service.js.map
