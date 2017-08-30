@@ -51,16 +51,26 @@ var FotoService = (function () {
 }());
 exports.FotoService = FotoService;
 var MensagemCadastro = (function () {
-    function MensagemCadastro(mensagem, inclusao) {
-        this._mensagem = mensagem;
-        this._inclusao = inclusao;
+    function MensagemCadastro(_mensagem, _inclusao) {
+        this._mensagem = _mensagem;
+        this._inclusao = _inclusao;
+        this._mensagem = _mensagem;
+        this._inclusao = _inclusao;
     }
-    MensagemCadastro.prototype.obterMensagem = function () {
-        return this._mensagem;
-    };
-    MensagemCadastro.prototype.ehInclusao = function () {
-        return this._inclusao;
-    };
+    Object.defineProperty(MensagemCadastro.prototype, "mensagem", {
+        get: function () {
+            return this._mensagem;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(MensagemCadastro.prototype, "inclusao", {
+        get: function () {
+            return this._inclusao;
+        },
+        enumerable: true,
+        configurable: true
+    });
     return MensagemCadastro;
 }());
 exports.MensagemCadastro = MensagemCadastro;
